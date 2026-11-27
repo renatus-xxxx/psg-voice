@@ -7,7 +7,11 @@
 # tools/tablacus/) whose dos2formsx disk carries PSGVOICE.COM and an
 # AUTOEXEC.BAT that runs it.
 
-Z88DK_DIR ?= $(abspath $(dir $(lastword $(MAKEFILE_LIST)))../../../z88dk-20261116)
+# Z88DK_DIR must point at your own z88dk installation; set it in the
+# environment, e.g.:  Z88DK_DIR=/opt/z88dk make -f Makefile.linux
+ifndef Z88DK_DIR
+$(error Z88DK_DIR is not set - point it at your z88dk tree, e.g. Z88DK_DIR=/opt/z88dk make -f Makefile.linux)
+endif
 export ZCCCFG := $(Z88DK_DIR)/lib/config
 export PATH   := $(Z88DK_DIR)/bin:$(PATH)
 
