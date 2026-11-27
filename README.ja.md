@@ -2,6 +2,8 @@
 
 日本語 | [English](README.md)
 
+![WebMSXで動作するPSGVOICE](images/webmsx-verified.png)
+
 MSX1のPSG（AY-3-8910）の音量レジスタを4ビットDACとして使う音声再生の、スライドとC言語による解説。ぼいち（KAKAO SOFT）『PSGで音声を再生する仕組み』（『KIRU!』技術解説）を引用・解説しています。
 
 ## ブラウザで再生

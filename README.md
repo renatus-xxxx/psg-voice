@@ -2,6 +2,8 @@
 
 [日本語](README.ja.md) | English
 
+![PSGVOICE running on WebMSX](images/webmsx-verified.png)
+
 Explained in slides & C: playing voice on MSX1 by using the PSG (AY-3-8910) volume register as a 4-bit DAC. Based on Voich (KAKAO SOFT), "PSG de Onsei wo Saisei suru Shikumi" (KIRU! tech notes).
 
 ## Play in the browser
