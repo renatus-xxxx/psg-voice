@@ -11,9 +11,7 @@ Explained in slides & C: playing voice on MSX1 by using the PSG (AY-3-8910) volu
 The ROM auto-boots into pseudo DOS (Ese-DOS / DISK ROM Lite) and runs
 `PSGVOICE.COM` from AUTOEXEC.BAT. It calibrates itself, plays the sample
 voice, prints the measured values, and returns to the `A>` prompt.
-Note: while this repository is private, the WebMSX link above cannot
-fetch the ROM anonymously; it works as-is once the repository is public.
-The same ROM was verified end-to-end in WebMSX locally (see
+The ROM was verified end-to-end in WebMSX (see
 `images/webmsx-verified.png`): calibration measured 716 samples/frame,
 cost 83, W=24.
 
@@ -42,7 +40,7 @@ make -f Makefile.linux        # PSGVOICE.COM
 make -f Makefile.linux rom    # + PSGVOICE-LITE.ROM (Ese-DOS)
 ```
 
-Requires z88dk (this workspace pins the 20261116 nightly).
+Requires z88dk.
 `tools/tablacus/` vendors Tablacus DISK ROM Lite (MIT, locally patched
 build — see its README) for the ROM image.
 

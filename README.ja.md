@@ -11,9 +11,7 @@ MSX1のPSG（AY-3-8910）の音量レジスタを4ビットDACとして使う音
 ROMは似非DOS（Ese-DOS／DISK ROM Lite）で自動起動し、AUTOEXEC.BATから
 `PSGVOICE.COM` を実行します。起動時校正→サンプル音声の再生→測定値の
 表示→`A>` プロンプトへ復帰、までが自動で進みます。
-注意：このリポジトリがPrivateの間は、上のWebMSXリンクはROMを匿名で
-取得できません。Publicにすればそのまま使えます。同じROMはローカルの
-WebMSXで最後まで動作確認済みです（`images/webmsx-verified.png`：
+同じROMはWebMSXで最後まで動作確認済みです（`images/webmsx-verified.png`：
 校正値 716サンプル/フレーム、cost 83、W=24）。
 
 ## 内容
@@ -38,7 +36,7 @@ make -f Makefile.linux        # PSGVOICE.COM
 make -f Makefile.linux rom    # + PSGVOICE-LITE.ROM（似非DOS）
 ```
 
-z88dkが必要です（このワークスペースでは nightly 20261116 に固定）。
+z88dkが必要です。
 ROMイメージ用に `tools/tablacus/` へ Tablacus DISK ROM Lite
 （MIT、自前パッチ版。詳細は同梱README）を収録しています。
 
