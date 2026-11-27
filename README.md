@@ -11,9 +11,6 @@ Explained in slides & C: playing voice on MSX1 by using the PSG (AY-3-8910) volu
 The ROM auto-boots into pseudo DOS (Ese-DOS / DISK ROM Lite) and runs
 `PSGVOICE.COM` from AUTOEXEC.BAT. It calibrates itself, plays the sample
 voice, prints the measured values, and returns to the `A>` prompt.
-The ROM was verified end-to-end in WebMSX (see
-`images/webmsx-verified.png`): calibration measured 716 samples/frame,
-cost 83, W=24.
 
 ## What this is
 

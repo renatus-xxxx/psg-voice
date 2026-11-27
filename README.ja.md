@@ -11,8 +11,6 @@ MSX1のPSG（AY-3-8910）の音量レジスタを4ビットDACとして使う音
 ROMは似非DOS（Ese-DOS／DISK ROM Lite）で自動起動し、AUTOEXEC.BATから
 `PSGVOICE.COM` を実行します。起動時校正→サンプル音声の再生→測定値の
 表示→`A>` プロンプトへ復帰、までが自動で進みます。
-同じROMはWebMSXで最後まで動作確認済みです（`images/webmsx-verified.png`：
-校正値 716サンプル/フレーム、cost 83、W=24）。
 
 ## 内容
 
