@@ -1,0 +1,48 @@
+name: wav2psg
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure (macOS, universal binary)
+        if: runner.os == 'macOS'
+        run: cmake -S . -B build -DCMAKE_OSX_ARCHITECTURES="x86_64;arm64"
+
+      - name: Configure
+        if: runner.os != 'macOS'
+        run: cmake -S . -B build
+
+      - name: Build
+        run: cmake --build build --config Release
+
+      - name: Verify universal binary (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          file build/wav2psg
+          lipo -info build/wav2psg | grep -E "x86_64.*arm64|arm64.*x86_64"
+
+      - name: Smoke test
+        shell: bash
+        run: |
+          BIN=$(find build -name 'wav2psg*' -type f | head -1)
+          echo "binary: $BIN"
+          "$BIN" sample/sample_voice.wav sample_out.h
+          grep -c ',' sample_out.h
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wav2psg-${{ matrix.os }}
+          path: |
+            build/wav2psg
+            build/Release/wav2psg.exe
+            build/wav2psg.exe
