@@ -15,15 +15,16 @@ ROMは似非DOS（Ese-DOS／DISK ROM Lite）で自動起動し、AUTOEXEC.BATか
 ## 内容
 
 - `slides/` — 原典を順に追い直した解説スライド14枚のPDF。
-  英語版（`psg-voice-explained.en.pdf`）と日本語版
-  （`psg-voice-explained.ja.pdf`）の2言語対応。
+  英語版（[psg-voice-explained.en.pdf](slides/psg-voice-explained.en.pdf)）と日本語版
+  （[psg-voice-explained.ja.pdf](slides/psg-voice-explained.ja.pdf)）の2言語対応。
   DACの発想、データの作り方、447サイクルの予算、ウェイト式、起動時校正。
 - `src/wav2psg.c` — PC用ツール（C99）。WAV→ピーク正規化→8000Hzへ
   間引き→4倍＋頭打ち→0〜15段へ量子化し、`voice_data.h` を出力。
 - `src/psgvoice.c` — MSX-DOS／似非DOS用コマンド `PSGVOICE.COM`
   （z88dk。アセンブラはサイクル数を数える再生ループだけ）。
 - `sample/` — 同梱サンプル音声「あいうえお。こんにちは、ピーエスジー
-  です。」2026年に本プロジェクト用にAI合成した音声で、第三者の録音は
+  です。」（[sample_voice.wav](sample/sample_voice.wav)）
+  2026年に本プロジェクト用にAI合成した音声で、第三者の録音は
   使っていないため著作権の問題はありません。母音5つ＋短い挨拶は
   4ビット再生でも聞き取りやすいため選びました。
 - `dist/` — ビルド済み `PSGVOICE.COM`（35,096バイト）と
@@ -39,6 +40,13 @@ make -f Makefile.linux rom    # + PSGVOICE-LITE.ROM（似非DOS）
 z88dkが必要です。
 ROMイメージ用に `tools/tablacus/` へ Tablacus DISK ROM Lite
 （MIT、自前パッチ版。詳細は同梱README）を収録しています。
+
+PC用ツール（wav2psg、Windows／macOS／Ubuntu）:
+
+```sh
+cmake -S . -B build
+cmake --build build
+```
 
 ## 校正方式についての注記
 

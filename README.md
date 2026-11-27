@@ -15,8 +15,8 @@ voice, prints the measured values, and returns to the `A>` prompt.
 ## What this is
 
 - `slides/` — a 14-slide explanatory deck as PDFs in
-  English (`psg-voice-explained.en.pdf`) and Japanese
-  (`psg-voice-explained.ja.pdf`): the DAC idea, the data pipeline,
+  English ([psg-voice-explained.en.pdf](slides/psg-voice-explained.en.pdf)) and Japanese
+  ([psg-voice-explained.ja.pdf](slides/psg-voice-explained.ja.pdf)): the DAC idea, the data pipeline,
   the 447-cycle budget, the wait-loop arithmetic, and startup calibration.
 - `src/wav2psg.c` — PC tool (C99): WAV → peak normalise → resample to
   8000 Hz → ×4 gain + clip → quantise to PSG volume steps 0–15,
@@ -24,7 +24,8 @@ voice, prints the measured values, and returns to the `A>` prompt.
 - `src/psgvoice.c` — MSX-DOS / Ese-DOS command `PSGVOICE.COM` (z88dk,
   inline assembler only for the cycle-counted playback loop).
 - `sample/` — the bundled sample voice: "A i u e o. Konnichiwa, PSG
-  desu." AI-synthesised for this project in 2026; no third-party
+  desu." ([sample_voice.wav](sample/sample_voice.wav))
+  AI-synthesised for this project in 2026; no third-party
   recording is used, so there is no copyright issue. Chosen because the
   five vowels plus a short greeting stay intelligible through 4-bit
   playback.
@@ -41,6 +42,13 @@ make -f Makefile.linux rom    # + PSGVOICE-LITE.ROM (Ese-DOS)
 Requires z88dk.
 `tools/tablacus/` vendors Tablacus DISK ROM Lite (MIT, locally patched
 build — see its README) for the ROM image.
+
+PC tool (wav2psg; Windows / macOS / Ubuntu):
+
+```sh
+cmake -S . -B build
+cmake --build build
+```
 
 ## Calibration note
 
