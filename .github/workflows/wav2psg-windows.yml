@@ -1,0 +1,22 @@
+name: wav2psg (Windows)
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cmake -S . -B build
+      - run: cmake --build build --config Release
+      - name: Smoke test
+        shell: bash
+        run: |
+          build/Release/wav2psg.exe sample/sample_voice.wav sample_out.h
+          grep -c ',' sample_out.h
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wav2psg-windows
+          path: build/Release/wav2psg.exe

@@ -4,6 +4,8 @@
 
 ![PSGVOICE running on WebMSX](images/webmsx-verified.png)
 
+[![wav2psg (Windows)](https://github.com/renatus-xxxx/psg-voice/actions/workflows/wav2psg-windows.yml/badge.svg)](https://github.com/renatus-xxxx/psg-voice/actions/workflows/wav2psg-windows.yml) [![wav2psg (macOS)](https://github.com/renatus-xxxx/psg-voice/actions/workflows/wav2psg-macos.yml/badge.svg)](https://github.com/renatus-xxxx/psg-voice/actions/workflows/wav2psg-macos.yml) [![wav2psg (Ubuntu)](https://github.com/renatus-xxxx/psg-voice/actions/workflows/wav2psg-ubuntu.yml/badge.svg)](https://github.com/renatus-xxxx/psg-voice/actions/workflows/wav2psg-ubuntu.yml)
+
 Explained in slides & C: playing voice on MSX1 by using the PSG (AY-3-8910) volume register as a 4-bit DAC. Based on Voich (KAKAO SOFT), "PSG de Onsei wo Saisei suru Shikumi" (KIRU! tech notes).
 
 ## Play in the browser

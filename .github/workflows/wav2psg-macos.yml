@@ -1,0 +1,26 @@
+name: wav2psg (macOS)
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure (universal binary)
+        run: cmake -S . -B build -DCMAKE_OSX_ARCHITECTURES="x86_64;arm64"
+      - run: cmake --build build --config Release
+      - name: Verify universal binary
+        run: |
+          file build/wav2psg
+          lipo -info build/wav2psg | grep -E "x86_64.*arm64|arm64.*x86_64"
+      - name: Smoke test
+        run: |
+          build/wav2psg sample/sample_voice.wav sample_out.h
+          grep -c ',' sample_out.h
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wav2psg-macos
+          path: build/wav2psg

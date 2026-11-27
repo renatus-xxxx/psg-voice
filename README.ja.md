@@ -4,6 +4,8 @@
 
 ![WebMSXで動作するPSGVOICE](images/webmsx-verified.png)
 
+[![wav2psg (Windows)](https://github.com/renatus-xxxx/psg-voice/actions/workflows/wav2psg-windows.yml/badge.svg)](https://github.com/renatus-xxxx/psg-voice/actions/workflows/wav2psg-windows.yml) [![wav2psg (macOS)](https://github.com/renatus-xxxx/psg-voice/actions/workflows/wav2psg-macos.yml/badge.svg)](https://github.com/renatus-xxxx/psg-voice/actions/workflows/wav2psg-macos.yml) [![wav2psg (Ubuntu)](https://github.com/renatus-xxxx/psg-voice/actions/workflows/wav2psg-ubuntu.yml/badge.svg)](https://github.com/renatus-xxxx/psg-voice/actions/workflows/wav2psg-ubuntu.yml)
+
 MSX1のPSG（AY-3-8910）の音量レジスタを4ビットDACとして使う音声再生の、スライドとC言語による解説。ぼいち（KAKAO SOFT）『PSGで音声を再生する仕組み』（『KIRU!』技術解説）を引用・解説しています。
 
 ## ブラウザで再生
