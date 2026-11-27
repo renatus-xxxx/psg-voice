@@ -16,7 +16,9 @@ ROMは似非DOS（Ese-DOS／DISK ROM Lite）で自動起動し、AUTOEXEC.BATか
 
 ## 内容
 
-- `slides/` — 原典を順に追い直した解説スライド14枚（発表者ノート付き）。
+- `slides/` — 原典を順に追い直した解説スライド14枚の匿名化済みPDF。
+  英語版（`psg-voice-explained.en.pdf`）と日本語版
+  （`psg-voice-explained.ja.pdf`）の2言語対応。
   DACの発想、データの作り方、447サイクルの予算、ウェイト式、起動時校正。
 - `src/wav2psg.c` — PC用ツール（C99）。WAV→ピーク正規化→8000Hzへ
   間引き→4倍＋頭打ち→0〜15段へ量子化し、`voice_data.h` を出力。
