@@ -1,0 +1,37 @@
+# Makefile.linux - build PSGVOICE.COM and the Ese-DOS ROM (z88dk)
+#
+#   make -f Makefile.linux       -> dist/PSGVOICE.COM
+#   make -f Makefile.linux rom   -> dist/PSGVOICE-LITE.ROM
+#
+# The ROM is a Tablacus DISK ROM Lite cartridge (patched build in
+# tools/tablacus/) whose dos2formsx disk carries PSGVOICE.COM and an
+# AUTOEXEC.BAT that runs it.
+
+Z88DK_DIR ?= $(abspath $(dir $(lastword $(MAKEFILE_LIST)))../../../z88dk-20261116)
+export ZCCCFG := $(Z88DK_DIR)/lib/config
+export PATH   := $(Z88DK_DIR)/bin:$(PATH)
+
+BUILD := build
+COM   := dist/PSGVOICE.COM
+ROM   := dist/PSGVOICE-LITE.ROM
+
+all: $(COM)
+
+$(COM): src/psgvoice.c src/voice_data.h
+	mkdir -p $(BUILD) dist
+	cd $(BUILD) && zcc +msx -create-app -O3 -subtype=msxdos -DMSX -I../src ../src/psgvoice.c -bn PSGVOICE.COM
+	rm -f $(BUILD)/PSGVOICE.img
+	cp $(BUILD)/PSGVOICE.COM $(COM)
+
+rom: $(ROM)
+
+$(ROM): $(COM) tools/make_rom_lite.py tools/tablacus/DISKROM64K.BIN tools/tablacus/DOS2FORMSX.DSK
+	python3 tools/make_rom_lite.py tools/tablacus/DISKROM64K.BIN tools/tablacus/DOS2FORMSX.DSK $(COM) $(ROM)
+
+wav2psg: src/wav2psg.c
+	gcc -std=c99 -O2 -Wall -o wav2psg src/wav2psg.c -lm
+
+clean:
+	rm -rf $(BUILD)
+
+.PHONY: all rom clean
