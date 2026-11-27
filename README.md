@@ -17,7 +17,7 @@ cost 83, W=24.
 
 ## What this is
 
-- `slides/` — a 14-slide explanatory deck as anonymised PDFs in
+- `slides/` — a 14-slide explanatory deck as PDFs in
   English (`psg-voice-explained.en.pdf`) and Japanese
   (`psg-voice-explained.ja.pdf`): the DAC idea, the data pipeline,
   the 447-cycle budget, the wait-loop arithmetic, and startup calibration.
